@@ -1,22 +1,28 @@
-package com.capstone;
+package com.capstone.services;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class Tools {
+public class InputValidators {
     static Scanner sc = new Scanner(System.in);
 
     // A method that will take prompt and set of numbers as ArrayList to check if user input
     // and verify it to be a number and within set of the provided numbers.
-    public static int getUserInput(String prompt, ArrayList<Integer> check){
+    public static int getUserNumberInput(String prompt, int[] check){
         int number;
         while(true){
             System.out.print(prompt + ": ");
             String input = sc.nextLine().trim();
             try{
                 number = Integer.parseInt(input);
-                if(check.contains(number)){
+                boolean isValid = false;
+                for(int i : check){
+                    if(i == number){
+                        isValid = true;
+                        break;
+                    }
+                }
+                if(isValid){
                     break;
                 }else{
                     System.out.println("Input out of range! Only choose from the given numbers.");
@@ -29,7 +35,7 @@ public class Tools {
     }
 
     //Overload the above method by just providing the prompt only when input range check is not needed.
-    public static double getUserInput(String prompt){
+    public static double getUserNumberInput(String prompt){
         double number;
         while(true){
             System.out.print(prompt + ": ");
@@ -56,16 +62,6 @@ public class Tools {
                 return input;
             }
         }
-    }
-
-    public static void menuDisplay(String title, String[] menuList){
-        System.out.println("╔══════════════════════════════════════════════╗");
-        System.out.println("╠═════➤ "+ title);
-        System.out.println("╠══════════════════════════════════════════════╣");
-        for(String menu : menuList ){
-            System.out.println("╠➤ " + menu);
-        }
-        System.out.println("╚══════════════════════════════════════════════╝");
     }
 
     public static void enterToContinue(){

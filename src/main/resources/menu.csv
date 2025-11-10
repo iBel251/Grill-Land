@@ -1,0 +1,58 @@
+name,category,price,calorie,description
+1,Grilled Chicken,entree,6.99,420,Marinated chicken grilled to perfection
+2,BBQ Ribs (Beef),entree,8.99,680,Slow-cooked beef ribs with smoky BBQ sauce
+3,Lamb Skewer,entree,7.99,540,Charcoal-grilled lamb with herbs
+4,Beef Steak,entree,9.49,620,Juicy grilled beef steak cooked to order
+5,Grilled Fish,entree,8.49,400,Lightly seasoned fish with lemon butter
+6,Fried Chicken,entree,7.49,550,Crispy golden fried chicken
+7,Spicy Chicken Wings,entree,6.99,480,Hot and spicy glazed wings
+8,Teriyaki Salmon,entree,9.29,510,Grilled salmon coated in teriyaki glaze
+9,Veggie Burger,entree,6.49,390,Plant-based patty with lettuce and tomato
+10,Pulled Beef Sandwich,entree,7.99,520,Shredded beef in smoky sauce on a bun
+11,Chicken Kebab,entree,7.49,460,Skewered chicken cubes grilled with peppers
+12,Shrimp Skewer,entree,8.29,350,Grilled shrimp with garlic butter
+1,French Fries,side,2.99,300,Crispy golden potato fries
+2,Mashed Potatoes,side,3.49,260,Creamy mashed potatoes with butter
+3,Steamed Rice,side,2.49,200,Fluffy white rice
+4,Fried Rice,side,3.49,310,Stir-fried rice with veggies and soy flavor
+5,Coleslaw,side,2.99,180,Creamy cabbage and carrot salad
+6,Mixed Vegetables,side,3.29,150,Lightly seasoned grilled veggies
+7,Mac and Cheese,side,3.99,340,Classic cheesy pasta comfort dish
+8,Grilled Corn,side,2.79,190,Charred corn brushed with butter
+9,Baked Beans,side,2.99,220,Slow-cooked beans in savory sauce
+10,Garden Salad,side,3.49,160,Fresh greens with house dressing
+11,Garlic Bread,side,2.99,250,Toasted bread with garlic butter
+12,Onion Rings,side,3.29,280,Crispy battered onion rings
+1,Coke,drink,1.99,140,Chilled classic Coca-Cola
+2,Sprite,drink,1.99,130,Refreshing lemon-lime soda
+3,Fanta,drink,1.99,150,Fruity orange soda
+4,Iced Tea,drink,2.29,80,Freshly brewed sweet or unsweet tea
+5,Lemonade,drink,2.49,90,Homemade lemonade with real lemons
+6,Orange Juice,drink,2.79,110,Freshly squeezed orange juice
+7,Bottled Water,drink,0.99,0,Refreshing bottled spring water
+8,Sparkling Water,drink,1.49,0,Carbonated mineral water
+9,Coffee,drink,1.99,5,Freshly brewed hot coffee
+10,Hot Tea,drink,1.79,2,Classic hot black tea
+1,BBQ Sauce,sauce,0.49,40,Smoky barbecue sauce
+2,Ranch,sauce,0.49,70,Creamy ranch dressing
+3,Ketchup,sauce,0.29,20,Classic tomato ketchup
+4,Mustard,sauce,0.29,15,Tangy yellow mustard
+5,Hot Sauce,sauce,0.39,10,Spicy chili pepper sauce
+6,Garlic Sauce,sauce,0.49,60,Rich creamy garlic flavor
+7,Teriyaki Sauce,sauce,0.49,55,Sweet soy-based glaze
+8,Sweet Chili Sauce,sauce,0.49,45,Sweet and spicy chili blend
+9,Honey Mustard,sauce,0.49,50,Golden honey and mustard mix
+10,Spicy Mayo,sauce,0.49,80,Creamy mayo with chili spice
+1,Dinner Roll,extra,0.99,120,Soft buttered bread roll
+2,Extra Cheese,extra,0.99,100,Add melted cheese to any meal
+3,Extra Meat,extra,2.49,200,Add more meat to your plate
+4,Side of Rice,extra,1.99,180,Additional portion of steamed rice
+5,Extra Sauce Cup,extra,0.49,50,Small cup of your chosen sauce
+6,Add Gravy,extra,0.79,60,Rich brown gravy topping
+7,Fried Egg,extra,1.29,90,Sunny-side-up egg add-on
+1,Cheesecake,dessert,3.99,480,Creamy New York-style cheesecake slice
+2,Brownie,dessert,2.99,420,Chocolate fudge brownie
+3,Ice Cream Cup,dessert,2.49,250,Vanilla or chocolate ice cream cup
+4,Chocolate Cake,dessert,3.49,460,Moist layered chocolate cake
+5,Fruit Salad,dessert,3.29,190,Fresh seasonal mixed fruits
+6,Donut,dessert,1.99,310,Soft glazed donut
