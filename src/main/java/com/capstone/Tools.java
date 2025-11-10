@@ -58,4 +58,19 @@ public class Tools {
         }
     }
 
+    public static void menuDisplay(String title, String[] menuList){
+        System.out.println("╔══════════════════════════════════════════════╗");
+        System.out.println("╠═════➤ "+ title);
+        System.out.println("╠══════════════════════════════════════════════╣");
+        for(String menu : menuList ){
+            System.out.println("╠➤ " + menu);
+        }
+        System.out.println("╚══════════════════════════════════════════════╝");
+    }
+
+    public static void enterToContinue(){
+        System.out.println("Press Enter to continue...");
+        sc.nextLine();
+    }
+
 }
