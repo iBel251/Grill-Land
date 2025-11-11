@@ -1,5 +1,7 @@
 package com.capstone.services;
 
+import com.capstone.RestaurantMenu;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,6 +35,30 @@ public class InputValidators {
         }
         return number;
     }
+
+    //Overload the above method if we need to check input against a number of items (used for menu item lists)
+    public static int getUserNumberInput(String prompt, int count){
+            int number;
+            while(true){
+                System.out.print(prompt + ": ");
+                String input = sc.nextLine().trim();
+                try{
+                    number = Integer.parseInt(input);
+                    boolean isValid = false;
+
+                        if(number >= 0 && number <= count){
+                            isValid = true;
+                            break;
+                        }else{
+                            System.out.println("Input out of range! Only choose from the given numbers.");
+                        }
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input! Please enter the number associated with the menu item.");
+                }
+            }
+            return number;
+        }
 
     //Overload the above method by just providing the prompt only when input range check is not needed.
     public static double getUserNumberInput(String prompt){

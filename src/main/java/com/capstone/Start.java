@@ -23,7 +23,6 @@ public class Start {
 //        Tools.menuDisplay("Main menu",menuList);
         FileManager.getFullMenu();
 
-        DisplayFormatters.menuDisplay("Menu", Filters.filterByCategoryAndId("entree",3));
         Menu.start();
     }
 }

@@ -1,4 +1,4 @@
-name,category,price,calorie,description
+id,name,category,price,calorie,description
 1,Grilled Chicken,entree,6.99,420,Marinated chicken grilled to perfection
 2,BBQ Ribs (Beef),entree,8.99,680,Slow-cooked beef ribs with smoky BBQ sauce
 3,Lamb Skewer,entree,7.99,540,Charcoal-grilled lamb with herbs

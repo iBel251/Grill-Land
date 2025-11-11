@@ -18,13 +18,12 @@ public class Filters {
         return result;
     }
 
-    public static ArrayList<MenuItem> filterByCategoryAndId(String category, int id){
-        ArrayList<MenuItem> result = new ArrayList<>();
+    public static MenuItem filterByCategoryAndId(String category, int id){
         for(MenuItem item : fullMenu){
             if(item.getCategory().equalsIgnoreCase(category) && item.getId() == id){
-                result.add(item);
+                return item;
             }
         }
-        return result;
+        return null;
     }
 }
