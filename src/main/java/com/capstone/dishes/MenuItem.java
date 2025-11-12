@@ -7,6 +7,8 @@ public class MenuItem {
     private double price;
     private int calories;
     private String description;
+    private String size = "medium";
+    private String variant;
 
     public MenuItem(int id,String name, String category, double price, int calories, String description){
         this.id = id;
@@ -39,6 +41,33 @@ public class MenuItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+        if (size.equalsIgnoreCase("small")) {
+            if(category.equalsIgnoreCase("drink")){
+                price *= 0.7;
+            }
+        } else {
+            if (size.equalsIgnoreCase("large")) {
+                if(category.equalsIgnoreCase("drink")){
+                    price *= 1.3;
+                }
+            }
+        }
+    }
+
+    public String getVariant() {
+        return variant;
+    }
+
+    public void setVariant(String variant) {
+        this.variant = variant;
     }
 
     @Override

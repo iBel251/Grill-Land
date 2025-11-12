@@ -11,7 +11,7 @@ public class Plate {
     private ArrayList<MenuItem> entrees;
     private ArrayList<MenuItem> sides;
     private ArrayList<MenuItem> drinks;
-    private ArrayList<MenuItem> extras;
+    private ArrayList<MenuItem> sauces;
     private ArrayList<MenuItem> desserts;
     private double totalPrice;
 
@@ -21,7 +21,7 @@ public class Plate {
         this.entrees = new ArrayList<>();
         this.sides = new ArrayList<>();
         this.drinks = new ArrayList<>();
-        this.extras = new ArrayList<>();
+        this.sauces = new ArrayList<>();
         this.desserts = new ArrayList<>();
         this.totalPrice = 0;
     }
@@ -49,10 +49,10 @@ public class Plate {
             totalPrice += drink.getPrice();
     }
 
-    public void addExtra(MenuItem extra){
-            extras.add(extra);
-            if(extras.size() > 3){
-                totalPrice += extra.getPrice();
+    public void addSauce(MenuItem sauce){
+            sauces.add(sauce);
+            if(sauces.size() > 3){
+                totalPrice += sauce.getPrice();
             }
     }
 
@@ -85,8 +85,8 @@ public class Plate {
         return drinks;
     }
 
-    public ArrayList<MenuItem> getExtras() {
-        return extras;
+    public ArrayList<MenuItem> getSauces() {
+        return sauces;
     }
 
     public ArrayList<MenuItem> getDesserts() {
@@ -95,6 +95,19 @@ public class Plate {
 
     public double getTotalPrice(){
         return totalPrice;
+    }
+
+    public void replaceEntree(MenuItem item1, MenuItem item2){
+        int index = entrees.indexOf(item1);
+        if(index != -1){
+            entrees.set(index, item2);
+        }
+    }
+    public void replaceSide(MenuItem item1, MenuItem item2){
+        int index = sides.indexOf(item1);
+        if(index != -1){
+            sides.set(index, item2);
+        }
     }
 
     public void displayPlate(){
@@ -107,7 +120,7 @@ public class Plate {
         for(MenuItem item : drinks){
             displayItem(item);
         }
-        for(MenuItem item : extras){
+        for(MenuItem item : sauces){
             displayItem(item);
         }
         for(MenuItem item : desserts){

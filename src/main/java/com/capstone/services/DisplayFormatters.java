@@ -33,6 +33,10 @@ public class DisplayFormatters {
         double price = item.getPrice();
         int calorie = item.getCalories();
         String description = item.getDescription();
+        char size = item.getSize().toUpperCase().charAt(0);
+        if(category.equalsIgnoreCase("drink")){
+            name = name + "(" + size + ")";
+        }
         System.out.printf("╠ %-2s %-25s $%-7.2f %-8d %s%n",id,name,price,calorie,description);
     }
 

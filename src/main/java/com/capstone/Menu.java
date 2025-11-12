@@ -2,6 +2,7 @@ package com.capstone;
 
 import com.capstone.dishes.*;
 import com.capstone.services.DisplayFormatters;
+import com.capstone.services.DisplayManager;
 import com.capstone.services.Filters;
 import com.capstone.services.InputValidators;
 
@@ -63,90 +64,46 @@ public class Menu {
                     plateHandler(plate);
                     break;
                 }
+                default:{
+                    System.out.println("Error! Please try again.");
+                }
             }
         }
     }
 
     static void plateHandler(Plate plate){
-            DisplayFormatters.menuDisplay("Choose Entree", RestaurantMenu.entreeMenu);
-        for(int i=1 ; i<=plate.getAllowedEntrees() ; i++){
-            String[] placeholders = {"first","second","third","forth"};
-            int userChoice = InputValidators.getUserNumberInput("Enter " + placeholders[i-1] + " selection here",RestaurantMenu.entreeCount);
-            if(userChoice == 0){
-                System.out.println("Entree must be selected to continue.");
-                i--;
-            }else{
-                MenuItem item = Filters.filterByCategoryAndId("entree", userChoice);
-                plate.addEntree(item);
-                System.out.print("Entree " + i + " - " );
-                assert item != null;
-                DisplayFormatters.itemDisplay(item);
+
+        DisplayManager.entreeMenu(plate);
+        DisplayManager.sideMenu(plate);
+
+        boolean isRunning = true;
+        while(isRunning){
+
+            String[] menuList = {"1: Edit entrees","2: Edit sides", "3: Add drinks","4: Add sauces","5: Add desserts","0: Proceed to Checkout"};
+            DisplayFormatters.screenDisplay("Customise your plate", menuList);
+            int userChoice = InputValidators.getUserNumberInput("Enter chosen number here.",5);
+
+            switch (userChoice){
+                case 3 : {
+                    DisplayManager.drinkMenu(plate);
+                    break;
+                }
+                case 4 : {
+                    DisplayManager.sauceMenu(plate);
+                    break;
+                }
+                case 5 : {
+                    DisplayManager.dessertMenu(plate);
+                    break;
+                }
+                case 0 : {
+                    isRunning = false;
+                    break;
+                }
+
             }
         }
 
-            DisplayFormatters.menuDisplay("Choose Sides", RestaurantMenu.sideMenu);
-        for(int i=1 ; i<=plate.getAllowedSides() ; i++){
-            String[] placeholders = {"first","second","third","forth"};
-            int userChoice = InputValidators.getUserNumberInput("Enter " + placeholders[i-1] + " selection here",RestaurantMenu.sideCount);
-            if(userChoice == 0){
-                System.out.println("Side must be selected to continue.");
-                i--;
-            }else{
-                MenuItem item = Filters.filterByCategoryAndId("side", userChoice);
-                plate.addSide(item);
-                System.out.print("Side " + i + " - " );
-                assert item != null;
-                DisplayFormatters.itemDisplay(item);            }
-        }
-
-            DisplayFormatters.menuDisplay("Sauces Menu", RestaurantMenu.sauceMenu);
-        while (true){
-            int userChoice = InputValidators.getUserNumberInput("Enter selected number here. 0 if you are done",RestaurantMenu.sauceCount);
-            if(userChoice == 0){
-                break;
-            } else if (plate.getExtras().size() >= 6) {
-                System.out.println("Maximum sauces allowed is 6.");
-                break;
-            }else{
-                MenuItem item = Filters.filterByCategoryAndId("sauce", userChoice);
-                plate.addExtra(item);
-                System.out.print("Sauce " + plate.getExtras().size() + " - " );
-                assert item != null;
-                DisplayFormatters.itemDisplay(item);            }
-        }
-
-            DisplayFormatters.menuDisplay("Drinks", RestaurantMenu.drinkMenu);
-        while (true){
-            int userChoice = InputValidators.getUserNumberInput("Enter selected number here. 0 when you are done",RestaurantMenu.drinkCount);
-            if(userChoice == 0){
-                break;
-            }else if (plate.getDrinks().size() >= 6) {
-                System.out.println("Maximum drinks allowed is 8.");
-                break;
-            }else{
-                MenuItem item = Filters.filterByCategoryAndId("drink", userChoice);
-                plate.addDrink(item);
-                System.out.print("Drink " + plate.getDrinks().size() + " - " );
-                assert item != null;
-                DisplayFormatters.itemDisplay(item);            }
-        }
-
-
-            DisplayFormatters.menuDisplay("Desserts", RestaurantMenu.dessertMenu);
-        while (true){
-            int userChoice = InputValidators.getUserNumberInput("Enter selected number here. 0 when you are done",RestaurantMenu.dessertCount);
-            if(userChoice == 0){
-                break;
-            }else if (plate.getDesserts().size() >= 6) {
-                System.out.println("Maximum desserts allowed is 8.");
-                break;
-            }else{
-                MenuItem item = Filters.filterByCategoryAndId("dessert", userChoice);
-                plate.addDessert(item);
-                System.out.print("Dessert " + plate.getDesserts().size() + " - " );
-                assert item != null;
-                DisplayFormatters.itemDisplay(item);            }
-        }
 
         System.out.println("Here is your selected menu, check and proceed to checkout.");
         DisplayFormatters.receiptDisplay(plate);
