@@ -62,8 +62,9 @@ public class MenuManager {
                     clonedItem.setVariant(chosenVariant);
                 }
                 plate.addEntree(clonedItem);
-                System.out.print("Entree " + i + " - ");
+                System.out.print("\nEntree have been added.\n");
                 DisplayFormatters.itemDisplay(clonedItem);
+                System.out.println();
             }
             i++;
 
@@ -104,8 +105,9 @@ public class MenuManager {
                 assert item != null;
                 MenuItem clonedItem = new MenuItem(item);
                 plate.addSide(clonedItem);
-                System.out.print("Side " + i + " - " );
+                System.out.print("\nSide have been added.\n");
                 DisplayFormatters.itemDisplay(clonedItem);
+                System.out.println();
             }
             i++;
         }
@@ -124,9 +126,10 @@ public class MenuManager {
             }else{
                 MenuItem item = Filters.filterByCategoryAndId("sauce", userChoice);
                 plate.addSauce(item);
-                System.out.print("Sauce " + plate.getSauces().size() + " - " );
+                System.out.print("\nSauce have been added.\n");
                 assert item != null;
                 DisplayFormatters.itemDisplay(item);
+                System.out.println();
             }
         }
     }
@@ -148,7 +151,6 @@ public class MenuManager {
                 MenuItem clonedItem = new MenuItem(item);
 
                 if(Tools.sizableItems.contains(item.getName().toLowerCase().split("\\(")[0])){
-                    System.out.println("Drink is "+ item.getName().toLowerCase().split("\\(")[0]);
 
                     DisplayFormatters.screenDisplay("Sizes", sizes);
                     while(true){
@@ -165,8 +167,9 @@ public class MenuManager {
                     }
                 }
                 plate.addDrink(clonedItem);
-                System.out.print("Drink " + plate.getDrinks().size() + " - " );
+                System.out.print("\nDrink have been added.\n");
                 DisplayFormatters.itemDisplay(clonedItem);
+                System.out.println();
             }
         }
     }
@@ -183,9 +186,10 @@ public class MenuManager {
             }else{
                 MenuItem item = Filters.filterByCategoryAndId("dessert", userChoice);
                 plate.addDessert(item);
-                System.out.print("Dessert " + plate.getDesserts().size() + " - " );
+                System.out.print("\nDessert have been added.\n");
                 assert item != null;
                 DisplayFormatters.itemDisplay(item);
+                System.out.println();
             }
         }
     }
@@ -202,9 +206,10 @@ public class MenuManager {
             }else{
                 MenuItem item = Filters.filterByCategoryAndId("extra", userChoice);
                 plate.addExtra(item);
-                System.out.print("Extra " + plate.getExtras().size() + " - " );
+                System.out.print("\nItem have been added.\n");
                 assert item != null;
                 DisplayFormatters.itemDisplay(item);
+                System.out.println();
             }
         }
     }

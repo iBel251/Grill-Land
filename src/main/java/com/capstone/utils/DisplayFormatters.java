@@ -2,6 +2,7 @@ package com.capstone.utils;
 
 import com.capstone.dishes.MenuItem;
 import com.capstone.dishes.Plate;
+import com.capstone.ui.Colors;
 
 import java.util.ArrayList;
 
@@ -17,13 +18,13 @@ public class DisplayFormatters {
     }
 
     public static void menuDisplay(String title, ArrayList<MenuItem> menu){
-        System.out.println("\n\n\n\n\n╔══════════════════════════════════════════════╗");
-        System.out.println("╠═════➤ "+ title);
-        System.out.println("╠══════════════════════════════════════════════╣");
+        System.out.println("\n\n\n\n\n╔══════════════════════════════════════════════\uD83D\uDD25  \uD83E\uDD69  \uD83C\uDF57  \uD83C\uDF56");
+        System.out.println("╠════════════➤ "+ title);
+        System.out.println("╠══════════════════════════════════════════════\uD83D\uDD25  \uD83E\uDD69  \uD83C\uDF57  \uD83C\uDF56");
         for(MenuItem item : menu ){
             itemDisplay(item);
         }
-        System.out.println("╚══════════════════════════════════════════════╝\n\n");
+        System.out.println("╚══════════════════════════════════════════════\uD83D\uDD25  \uD83E\uDD69  \uD83C\uDF57  \uD83C\uDF56\n\n");
     }
 
     public static void menuDisplay(String title, ArrayList<MenuItem> menu, boolean customId){
@@ -41,22 +42,24 @@ public class DisplayFormatters {
     public static void itemDisplay(MenuItem item){
         int id = item.getId();
         String name = item.getName().split("\\(")[0];
-        String category = item.getCategory();
         double price = item.getPrice();
-        int calorie = item.getCalories();
         String description = item.getDescription();
-        char size = item.getSize().toUpperCase().charAt(0);
-        System.out.printf("╠ %-2s %-25s $%-7.2f %-8d %s%n",id,name,price,calorie,description);
+        System.out.printf("╠ %-2s %s%-25s%s %s$%-7.2f%s %s%n",
+                id,
+                Colors.CYAN, name, Colors.RESET,
+                Colors.GREEN, price, Colors.RESET,
+                description);
     }
 
     public static void itemDisplay(MenuItem item, int index){
         String name = item.getName().split("\\(")[0];
-        String category = item.getCategory();
         double price = item.getPrice();
-        int calorie = item.getCalories();
         String description = item.getDescription();
-        char size = item.getSize().toUpperCase().charAt(0);
-        System.out.printf("╠ %-2s %-25s $%-7.2f %-8d %s%n",index,name,price,calorie,description);
+        System.out.printf("╠ %-2s %s%-25s%s %s$%-7.2f%s %s%n",
+                index,
+                Colors.CYAN, name, Colors.RESET,
+                Colors.GREEN, price, Colors.RESET,
+                description);
     }
 
     public static void receiptDisplay (Plate plate){
@@ -86,6 +89,6 @@ public class DisplayFormatters {
         System.out.println("❌ " + text);
     }
     public static void deniedMessageDisplay(String text){System.out.println("❗ " + text);}
-    public static void warningDisplay(String text){System.out.println("❗ " + text);}
+    public static void warningDisplay(String text){System.out.print("\n❗❗ " + text+"\n");}
 
 }

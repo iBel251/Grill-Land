@@ -6,10 +6,11 @@ import com.capstone.utils.*;
 public class Menu {
 
         static Plate plate = null;
-//        static User user = null;
 
     public static void start(){
-        System.out.println("Welcome to Grill Land");
+        System.out.println("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
+        System.out.println("      WELCOME TO GRILL LAND");
+        System.out.println("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
         boolean isRunning = true;
         while(isRunning){
             String[] mainMenu;
@@ -52,7 +53,12 @@ public class Menu {
     public static void startOrder(){
         boolean orderInProgress = true;
         while(orderInProgress){
-            String[] menu = {"1: Single plate($13.99)","2: Double plate($17.99)","3: Family plate($25.99)","4: Build Your Own Plate","5: Grill-Land Special","0: Back to Main"};
+            String[] menu = {"1: Single plate($13.99) "+Colors.BLUE+" 1-Entree, 2-Sides"+Colors.RESET,
+                    "2: Double plate($17.99) "+Colors.BLUE+" 2-Entree, 3-Sides"+Colors.RESET,
+                    "3: Family plate($25.99) "+Colors.BLUE+" 3-Entree, 4-Sides"+Colors.RESET,
+                    "4: Build Your Own Plate",
+                    "5: Grill-Land Special",
+                    "0: Back to Main"};
             DisplayFormatters.screenDisplay("Choose plate size",menu);
             int userChoice = InputValidators.getUserNumberInput("Enter the number here",5);
 
@@ -144,8 +150,7 @@ public class Menu {
                         System.out.println("Plate is empty! Please choose at least 1 item before checkout.");
                         break;
                     }
-                    processCheckout(plate);
-                    isRunning = false;
+                    processCheckout(plate, isRunning);
                     break;
                 }
                 case 99:{
@@ -165,16 +170,23 @@ public class Menu {
         InputValidators.enterToContinue();
     }
 
-    static void processCheckout(Plate plate){
+    static void processCheckout(Plate plate, boolean isRunning){
         System.out.println("Here is your selected menu, check and proceed to checkout.");
         DisplayFormatters.receiptDisplay(plate);
-        System.out.println("1: Proceed to checkout");
-        System.out.println("0: Cancel and Back to menu");
+        System.out.println("\n╔══════════════════════════════╗");
+        System.out.println(Colors.BRIGHT_CYAN + "╠➤ 1: Proceed to checkout"+ Colors.RESET);
+        System.out.println(Colors.BRIGHT_RED + "╠➤ 0: Cancel and Back to menu" + Colors.RESET);
+        System.out.println("╚══════════════════════════════╝\n");
         int selected = InputValidators.getUserNumberInput("Enter number here",1);
         if(selected == 1){
             FileManager.receiptGenerator(plate);
+            InputValidators.enterToContinue();
+            isRunning = false;
         } else if (selected == 0) {
+            isRunning = true;
             return;
+        }else{
+            System.out.println("Invalid input.");
         }
     }
 }

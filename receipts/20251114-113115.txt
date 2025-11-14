@@ -1,0 +1,19 @@
+====== Grill Land ======
+Plate: Family Plate
+Base Price: $25.99
+
+Items:
+  Lamb Chops(Medium Rare)   Included
+  Lamb Skewer               Included
+  Beef Steak(Well Done)     Included
+  French Fries              Included
+  Mashed Potatoes           Included
+  Steamed Rice              Included
+  Fried Rice                Included
+  Coleslaw                  $2.99   
+  Coke(large)               $2.59   
+
+Subtotal: $31.57
+Tax (9.5%): $3.00
+Total: $34.57
+========================

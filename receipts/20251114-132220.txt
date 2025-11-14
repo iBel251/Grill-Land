@@ -1,0 +1,18 @@
+====== Grill Land ======
+Plate: Single Plate
+Base Price: $13.99
+
+Items:
+  Lamb Chops(Medium Rare)   Included
+  French Fries              Included
+  Mashed Potatoes           Included
+  Steamed Rice              $2.49   
+  Fried Rice                $3.49   
+  Coke(large)               $2.59   
+  Cheesecake                $3.99   
+  Brownie                   $2.99   
+
+Subtotal: $29.54
+Tax (9.5%): $2.81
+Total: $32.34
+========================

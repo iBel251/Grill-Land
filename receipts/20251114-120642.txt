@@ -1,0 +1,15 @@
+====== Grill Land ======
+Plate: Single Plate
+Base Price: $13.99
+
+Items:
+  Lamb Chops(Rare)          Included
+  Grilled Chicken           $6.99   
+  Fried Chicken             $7.49   
+  Mashed Potatoes           Included
+  Steamed Rice              Included
+
+Subtotal: $28.47
+Tax (9.5%): $2.70
+Total: $31.17
+========================

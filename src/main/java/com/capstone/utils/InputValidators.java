@@ -1,5 +1,7 @@
 package com.capstone.utils;
 
+import com.capstone.ui.Colors;
+
 import java.util.Scanner;
 
 public class InputValidators {
@@ -37,7 +39,7 @@ public class InputValidators {
     public static int getUserNumberInput(String prompt, int count){
             int number;
             while(true){
-                System.out.print(prompt + ": ");
+                System.out.print(Colors.YELLOW + prompt + Colors.RESET + " ➤ ");
                 String input = sc.nextLine().trim();
                 try{
                     number = Integer.parseInt(input);
