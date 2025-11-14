@@ -1,8 +1,5 @@
-package com.capstone.services;
+package com.capstone.utils;
 
-import com.capstone.RestaurantMenu;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputValidators {
@@ -46,7 +43,7 @@ public class InputValidators {
                     number = Integer.parseInt(input);
                     boolean isValid = false;
 
-                        if(number >= 0 && number <= count){
+                        if((number >= 0 && number <= count) || number == 99){
                             isValid = true;
                             break;
                         }else{

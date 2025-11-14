@@ -1,19 +1,22 @@
 package com.capstone.dishes;
 
-import com.capstone.services.DisplayFormatters;
-
 import java.util.ArrayList;
 
 public class Plate {
     private int allowedEntrees;
     private int allowedSides;
-    private String name;
-    private ArrayList<MenuItem> entrees;
-    private ArrayList<MenuItem> sides;
+
+    protected ArrayList<MenuItem> entrees;
+    protected ArrayList<MenuItem> sides;
+
     private ArrayList<MenuItem> drinks;
     private ArrayList<MenuItem> sauces;
     private ArrayList<MenuItem> desserts;
-    private double totalPrice;
+    private ArrayList<MenuItem> extras;
+
+    protected String name;
+    protected double totalPrice;
+    protected double platePrice;
 
     public Plate(int allowedEntrees, int allowedSides){
         this.allowedEntrees = allowedEntrees;
@@ -23,25 +26,22 @@ public class Plate {
         this.drinks = new ArrayList<>();
         this.sauces = new ArrayList<>();
         this.desserts = new ArrayList<>();
+        this.extras = new ArrayList<>();
         this.totalPrice = 0;
     }
 
     public void addEntree(MenuItem entree){
-        if(entrees.size() < allowedEntrees){
-            entrees.add(entree);
+        if(entrees.size() >= allowedEntrees){
             totalPrice += entree.getPrice();
-        }else{
-            System.out.println("Maximum amount of Entrees have already been added.");
         }
+        entrees.add(entree);
     }
 
     public void addSide(MenuItem side){
-        if(sides.size() < allowedSides){
-            sides.add(side);
+        if(sides.size() >= allowedSides){
             totalPrice += side.getPrice();
-        }else{
-            System.out.println("Maximum amount of Sides have already been added.");
         }
+        sides.add(side);
     }
 
     public void addDrink(MenuItem drink){
@@ -61,12 +61,21 @@ public class Plate {
             totalPrice += dessert.getPrice();
     }
 
+    public void addExtra(MenuItem extra) {
+        extras.add(extra);
+        totalPrice += extra.getPrice();
+    }
+
     public int getAllowedEntrees() {
         return allowedEntrees;
     }
 
     public int getAllowedSides() {
         return allowedSides;
+    }
+
+    public double getPlatePrice() {
+        return platePrice;
     }
 
     public String getName() {
@@ -93,29 +102,97 @@ public class Plate {
         return desserts;
     }
 
+    public ArrayList<MenuItem> getExtras() {
+        return extras;
+    }
+
     public double getTotalPrice(){
         return totalPrice;
     }
 
-    public void replaceEntree(MenuItem item1, MenuItem item2){
-        int index = entrees.indexOf(item1);
-        if(index != -1){
-            entrees.set(index, item2);
-        }
+    public ArrayList<MenuItem> getAllItems(){
+        ArrayList<MenuItem> allItems = new ArrayList<>();
+        allItems.addAll(entrees);
+        allItems.addAll(sides);
+        allItems.addAll(drinks);
+        allItems.addAll(sauces);
+        allItems.addAll(desserts);
+        allItems.addAll(extras);
+        return allItems;
     }
-    public void replaceSide(MenuItem item1, MenuItem item2){
-        int index = sides.indexOf(item1);
-        if(index != -1){
-            sides.set(index, item2);
+
+    public void removeItem(MenuItem item){
+        boolean isRemoved = false;
+        isRemoved = (entrees.remove(item) ||
+        sides.remove(item) ||
+        drinks.remove(item) ||
+        desserts.remove(item) ||
+        extras.remove(item) ||
+        sauces.remove(item));
+        if(isRemoved){
+            System.out.println("Item successfully removed.");
         }
     }
 
+    public String buildPlateText() {
+        StringBuilder sb = new StringBuilder();
+
+        // ENTREE SECTION
+        for (MenuItem item : entrees) {
+            if ((entrees.indexOf(item) < allowedEntrees) && !name.equalsIgnoreCase("Custom Plate")) {
+                sb.append(String.format("  %-25s Included%n", item.getName()));
+            } else {
+                sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+            }
+        }
+
+        // SIDES
+        for (MenuItem item : sides) {
+            if ((sides.indexOf(item) < allowedSides) && !name.equalsIgnoreCase("Custom Plate")) {
+                sb.append(String.format("  %-25s Included%n", item.getName()));
+            } else {
+                sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+            }
+        }
+
+        // DRINKS
+        for (MenuItem item : drinks) {
+            sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+        }
+
+        // SAUCES
+        for (MenuItem item : sauces) {
+            sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+        }
+
+        // DESSERTS
+        for (MenuItem item : desserts) {
+            sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+        }
+
+        // EXTRAS
+        for (MenuItem item : extras) {
+            sb.append(String.format("  %-25s $%-7.2f%n", item.getName(), item.getPrice()));
+        }
+
+        return sb.toString();
+    }
+
+
     public void displayPlate(){
         for(MenuItem item : entrees){
-            displayItem(item);
+            if((entrees.indexOf(item) < allowedEntrees) && !name.equalsIgnoreCase("Custom Plate")){
+                displayItem(item,true);
+            }else {
+                displayItem(item);
+            }
         }
         for(MenuItem item : sides){
-            displayItem(item);
+            if((sides.indexOf(item) < allowedSides)&& !name.equalsIgnoreCase("Custom Plate")){
+                displayItem(item,true);
+            }else {
+                displayItem(item);
+            }
         }
         for(MenuItem item : drinks){
             displayItem(item);
@@ -126,6 +203,13 @@ public class Plate {
         for(MenuItem item : desserts){
             displayItem(item);
         }
+        for(MenuItem item : extras){
+            displayItem(item);
+        }
+    }
+    public void displayItem(MenuItem item, boolean isFree){
+
+        System.out.printf("╠ %-25s %-7s%n",item.getName(),"Included");
     }
     public void displayItem(MenuItem item){
         System.out.printf("╠ %-25s $%-7.2f%n",item.getName(),item.getPrice());

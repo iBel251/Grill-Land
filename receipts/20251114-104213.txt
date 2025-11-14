@@ -1,0 +1,23 @@
+====== Grill Land ======
+Plate: Grill-Land Special
+Base Price: $25.99
+
+Items:
+  BBQ Ribs (Beef)           Included
+  Chicken Kebab             Included
+  Lamb Chops(Medium Well)   $9.99   
+  Mixed Vegetables          Included
+  Mac and Cheese            Included
+  Baked Beans               Included
+  Lemonade                  $0.00   
+  Bottled Water             $0.00   
+  Ice Cream Cup             $0.00   
+  Chocolate Cake            $0.00   
+  BBQ Sauce                 $0.00   
+  Ranch                     $0.00   
+  Ketchup                   $0.00   
+
+Subtotal: $35.98
+Tax (9.5%): $3.42
+Total: $39.40
+========================

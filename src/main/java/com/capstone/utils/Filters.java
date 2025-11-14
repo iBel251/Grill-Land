@@ -1,4 +1,4 @@
-package com.capstone.services;
+package com.capstone.utils;
 
 import com.capstone.RestaurantMenu;
 import com.capstone.dishes.MenuItem;

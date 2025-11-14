@@ -1,0 +1,16 @@
+====== Grill Land ======
+Plate: Single Plate
+Base Price: $13.99
+
+Items:
+  Lamb Chops(Medium Rare)   Included
+  Lamb Skewer               $7.99   
+  French Fries              Included
+  Mashed Potatoes           Included
+  Mashed Potatoes           $3.49   
+  French Fries              $2.99   
+
+Subtotal: $28.46
+Tax (9.5%): $2.70
+Total: $31.16
+========================

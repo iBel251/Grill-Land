@@ -1,5 +1,7 @@
 package com.capstone.dishes;
 
+import com.capstone.utils.Tools;
+
 public class MenuItem {
     private int id;
     private String name;
@@ -8,7 +10,7 @@ public class MenuItem {
     private int calories;
     private String description;
     private String size = "medium";
-    private String variant;
+    private String variant = "normal";
 
     public MenuItem(int id,String name, String category, double price, int calories, String description){
         this.id = id;
@@ -18,12 +20,26 @@ public class MenuItem {
         this.calories = calories;
         this.description = description;
     }
+    public MenuItem(MenuItem item){
+        this.id = item.id;
+        this.name = item.name;
+        this.category = item.category;
+        this.price = item.price;
+        this.calories = item.calories;
+        this.description = item.description;
+    }
 
     public int getId() {
         return id;
     }
 
     public String getName() {
+        if(category.equalsIgnoreCase("drink") && Tools.sizableItems.contains(name.toLowerCase().split("\\(")[0])){
+            return name + "(" + size + ")";
+        }
+        if(category.equalsIgnoreCase("entree") && Tools.variantApplicableEntreeIds.contains(id)){
+            return name + "(" + variant + ")";
+        }
         return name;
     }
 
@@ -49,6 +65,7 @@ public class MenuItem {
 
     public void setSize(String size) {
         this.size = size;
+        System.out.println("size set to " + size);
         if (size.equalsIgnoreCase("small")) {
             if(category.equalsIgnoreCase("drink")){
                 price *= 0.7;
@@ -60,6 +77,10 @@ public class MenuItem {
                 }
             }
         }
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getVariant() {

@@ -1,4 +1,4 @@
-package com.capstone.services;
+package com.capstone.utils;
 
 import com.capstone.dishes.MenuItem;
 import com.capstone.dishes.Plate;
@@ -26,18 +26,37 @@ public class DisplayFormatters {
         System.out.println("╚══════════════════════════════════════════════╝\n\n");
     }
 
+    public static void menuDisplay(String title, ArrayList<MenuItem> menu, boolean customId){
+        System.out.println("\n\n\n\n\n╔══════════════════════════════════════════════╗");
+        System.out.println("╠═════➤ "+ title);
+        System.out.println("╠══════════════════════════════════════════════╣");
+        int i = 1;
+        for(MenuItem item : menu ){
+            itemDisplay(item, i);
+            i++;
+        }
+        System.out.println("╚══════════════════════════════════════════════╝\n\n");
+    }
+
     public static void itemDisplay(MenuItem item){
         int id = item.getId();
-        String name = item.getName();
+        String name = item.getName().split("\\(")[0];
         String category = item.getCategory();
         double price = item.getPrice();
         int calorie = item.getCalories();
         String description = item.getDescription();
         char size = item.getSize().toUpperCase().charAt(0);
-        if(category.equalsIgnoreCase("drink")){
-            name = name + "(" + size + ")";
-        }
         System.out.printf("╠ %-2s %-25s $%-7.2f %-8d %s%n",id,name,price,calorie,description);
+    }
+
+    public static void itemDisplay(MenuItem item, int index){
+        String name = item.getName().split("\\(")[0];
+        String category = item.getCategory();
+        double price = item.getPrice();
+        int calorie = item.getCalories();
+        String description = item.getDescription();
+        char size = item.getSize().toUpperCase().charAt(0);
+        System.out.printf("╠ %-2s %-25s $%-7.2f %-8d %s%n",index,name,price,calorie,description);
     }
 
     public static void receiptDisplay (Plate plate){
@@ -45,6 +64,7 @@ public class DisplayFormatters {
 
         System.out.printf("%-25s %8s%n", "Item", "Price");
         System.out.println("-----------------------------------------");
+        System.out.printf("╠ %-25s $%-7.2f%n",plate.getName(),plate.getPlatePrice());
         plate.displayPlate();
 
         double subTotal = plate.getTotalPrice();
@@ -65,4 +85,7 @@ public class DisplayFormatters {
     public static void errorDisplay(String text){
         System.out.println("❌ " + text);
     }
+    public static void deniedMessageDisplay(String text){System.out.println("❗ " + text);}
+    public static void warningDisplay(String text){System.out.println("❗ " + text);}
+
 }

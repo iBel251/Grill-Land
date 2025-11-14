@@ -1,16 +1,18 @@
 id,name,category,price,calorie,description
-1,Grilled Chicken,entree,6.99,420,Marinated chicken grilled to perfection
+1,Lamb Chops,entree,9.99,610,Char-grilled lamb chops seasoned with herbs
 2,BBQ Ribs (Beef),entree,8.99,680,Slow-cooked beef ribs with smoky BBQ sauce
 3,Lamb Skewer,entree,7.99,540,Charcoal-grilled lamb with herbs
 4,Beef Steak,entree,9.49,620,Juicy grilled beef steak cooked to order
-5,Grilled Fish,entree,8.49,400,Lightly seasoned fish with lemon butter
-6,Fried Chicken,entree,7.49,550,Crispy golden fried chicken
-7,Spicy Chicken Wings,entree,6.99,480,Hot and spicy glazed wings
-8,Teriyaki Salmon,entree,9.29,510,Grilled salmon coated in teriyaki glaze
-9,Veggie Burger,entree,6.49,390,Plant-based patty with lettuce and tomato
-10,Pulled Beef Sandwich,entree,7.99,520,Shredded beef in smoky sauce on a bun
-11,Chicken Kebab,entree,7.49,460,Skewered chicken cubes grilled with peppers
-12,Shrimp Skewer,entree,8.29,350,Grilled shrimp with garlic butter
+5,Gourmet Beef Burger,entree,7.99,520,Premium beef patty grilled to your preference
+6,Grilled Chicken,entree,6.99,420,Marinated chicken grilled to perfection
+7,Fried Chicken,entree,7.49,550,Crispy golden fried chicken
+8,Spicy Chicken Wings,entree,6.99,480,Hot and spicy glazed wings
+9,Teriyaki Salmon,entree,9.29,510,Grilled salmon coated in teriyaki glaze
+10,Veggie Burger,entree,6.49,390,Plant-based patty with lettuce and tomato
+11,Pulled Beef Sandwich,entree,7.99,520,Shredded beef in smoky sauce on a bun
+12,Chicken Kebab,entree,7.49,460,Skewered chicken cubes grilled with peppers
+13,Shrimp Skewer,entree,8.29,350,Grilled shrimp with garlic butter
+14,Grilled Fish,entree,8.49,400,Lightly seasoned fish with lemon butter
 1,French Fries,side,2.99,300,Crispy golden potato fries
 2,Mashed Potatoes,side,3.49,260,Creamy mashed potatoes with butter
 3,Steamed Rice,side,2.49,200,Fluffy white rice

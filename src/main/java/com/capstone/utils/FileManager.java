@@ -1,12 +1,16 @@
-package com.capstone.services;
+package com.capstone.utils;
 
 import com.capstone.RestaurantMenu;
 import com.capstone.dishes.MenuItem;
+import com.capstone.dishes.Plate;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class FileManager {
 
@@ -48,6 +52,41 @@ public class FileManager {
             }
         }catch (IOException e){
             System.out.println("Error! can't read the menu file.");
+        }
+    }
+
+    public static void receiptGenerator(Plate plate){
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("====== Grill Land ======\n");
+        sb.append("Plate: ").append(plate.getName()).append("\n");
+        sb.append("Base Price: $").append(String.format("%.2f", plate.getPlatePrice())).append("\n\n");
+
+        sb.append("Items:\n");
+        sb.append(plate.buildPlateText()).append("\n");
+
+        double subtotal = plate.getTotalPrice();
+        double tax = subtotal * 0.095;
+        double total = subtotal + tax;
+
+        sb.append("Subtotal: $").append(String.format("%.2f", subtotal)).append("\n");
+        sb.append("Tax (9.5%): $").append(String.format("%.2f", tax)).append("\n");
+        sb.append("Total: $").append(String.format("%.2f", total)).append("\n");
+        sb.append("========================\n");
+
+        // create file name
+        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+        String fileName = time + ".txt";
+
+        Path path = Path.of("receipts/" + fileName);
+
+        try {
+            Files.createDirectories(path.getParent());
+            Files.writeString(path, sb.toString());
+            System.out.println("Receipt saved: " + fileName);
+        } catch (Exception e) {
+            System.out.println("Could not save receipt: " + e.getMessage());
         }
     }
 }
